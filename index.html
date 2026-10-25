@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Galerna — a storm landing game</title>
+  <meta name="description" content="Land a rescue drone on the cliffs of A Coruña in a storm. Fixed-step physics, wind gusts, particles and procedural terrain in plain JavaScript and canvas.">
+  <meta name="theme-color" content="#1c1c1c">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Game area"></canvas>
+
+  <div class="hud" aria-live="polite">
+    <div class="hud-block">
+      <span class="hud-label" data-i18n="level">Level</span>
+      <span class="hud-value" id="hud-level">1</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label" data-i18n="fuel">Fuel</span>
+      <span class="fuel"><span id="hud-fuel"></span></span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label" data-i18n="speed">Speed</span>
+      <span class="hud-value" id="hud-speed">0.0</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label" data-i18n="wind">Wind</span>
+      <span class="hud-value" id="hud-wind">0</span>
+    </div>
+    <div class="hud-block">
+      <span class="hud-label" data-i18n="score">Score</span>
+      <span class="hud-value" id="hud-score">0</span>
+    </div>
+  </div>
+
+  <section class="panel" id="panel">
+    <h1 id="panel-title">Galerna</h1>
+    <p id="panel-text" data-i18n="intro">A storm hits the coast of A Coruña. Land the rescue drone on the lit pad: slow, upright and with fuel to spare.</p>
+    <dl class="keys">
+      <div><dt>← →</dt><dd data-i18n="keyRotate">Rotate</dd></div>
+      <div><dt>↑ / Space</dt><dd data-i18n="keyThrust">Thrust</dd></div>
+      <div><dt>P</dt><dd data-i18n="keyPause">Pause</dd></div>
+      <div><dt>R</dt><dd data-i18n="keyRestart">Restart level</dd></div>
+    </dl>
+    <button type="button" class="button" id="panel-button" data-i18n="start">Start</button>
+    <p class="best"><span data-i18n="best">Best score</span>: <span id="best">0</span></p>
+  </section>
+
+  <div class="touch" aria-hidden="true">
+    <button type="button" data-key="left">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button type="button" data-key="thrust" class="touch-thrust">
+      <svg viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
+    </button>
+    <button type="button" data-key="right">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <a class="back" href="https://cyberblock.github.io/iPortfolio/">Lázaro Pérez</a>
+
+  <script src="game.js"></script>
+</body>
+</html>
